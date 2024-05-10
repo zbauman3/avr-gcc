@@ -1,0 +1,2 @@
+- Help understanding where includes are referenced form:
+  - `avr-gcc -v -x c -E /dev/null` or `avr-gcc -v -x c++ -E /dev/null`

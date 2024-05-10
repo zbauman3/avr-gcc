@@ -1,0 +1,11 @@
+{
+  "files.associations": {
+    "*.ino": "cpp",
+    "sleep.h": "c",
+    "iotn13.h": "c",
+    "io.h": "c",
+    "interrupt.h": "c",
+    "project.h": "c",
+    "stdint.h": "c"
+  }
+}
