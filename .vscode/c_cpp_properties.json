@@ -4,26 +4,31 @@
     {
       "name": "Mac",
       "includePath": [
-        "./toolchain/avr/include",
-        "/Users/zanebauman/code/avr-gcc/toolchain/bin/../lib/gcc/avr/7.3.0/include",
-        "/Users/zanebauman/code/avr-gcc/toolchain/bin/../lib/gcc/avr/7.3.0/include-fixed",
-        "/Users/zanebauman/code/avr-gcc/toolchain/bin/../lib/gcc/avr/7.3.0/../../../../avr/include",
-        "/Users/zanebauman/code/avr-gcc/toolchain/bin/../libexec/gcc/avr/7.3.0",
-        "/Users/zanebauman/code/avr-gcc/toolchain/bin/../libexec/gcc",
-        "/Users/zanebauman/code/avr-gcc/toolchain/bin/../lib/gcc/avr/7.3.0/../../../../avr/bin",
-        "/Users/zanebauman/code/avr-gcc/toolchain/bin/../lib/gcc/avr/7.3.0",
-        "/Users/zanebauman/code/avr-gcc/toolchain/bin/../lib/gcc",
-        "/Users/zanebauman/code/avr-gcc/toolchain/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib"
+        "/Users/zanebauman/code/avr-gcc/toolchain/lib/gcc/avr/7.3.0/include",
+        "/Users/zanebauman/code/avr-gcc/toolchain/lib/gcc/avr/7.3.0/include-fixed",
+        "/Users/zanebauman/code/avr-gcc/toolchain/avr/include",
+        "/Users/zanebauman/code/avr-gcc/toolchain/libexec/gcc/avr/7.3.0",
+        "/Users/zanebauman/code/avr-gcc/toolchain/libexec/gcc",
+        "/Users/zanebauman/code/avr-gcc/toolchain/avr/bin",
+        "/Users/zanebauman/code/avr-gcc/toolchain/lib/gcc/avr/7.3.0",
+        "/Users/zanebauman/code/avr-gcc/toolchain/lib/gcc",
+        "/Users/zanebauman/code/avr-gcc/toolchain/avr/lib"
       ],
-      "defines": [],
+      "defines": [
+        // For some reason, VS code can't determine that these are defined.
+        // I'll just put them here and revisit later when I understand better.
+        "__asm__ asm",
+        "__volatile__ volatile",
+      ],
       "compilerPath": "./toolchain/bin/avr-gcc",
+      // "compilerPath": "/usr/bin/clang",
       "compilerArgs": [
+        "-c",
         "-std=gnu99"
       ],
-      // "compilerPath": "/usr/bin/clang",
       "cStandard": "gnu99",
       "cppStandard": "c++14",
-      "intelliSenseMode": "macos-clang-arm64"
+      "intelliSenseMode": "gcc-x64"
     }
   ],
   "version": 4

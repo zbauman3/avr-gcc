@@ -54,3 +54,5 @@ dkms.conf
 # Misc
 *.eep
 **/.DS_Store
+*.srec
+*.lst
