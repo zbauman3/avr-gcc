@@ -2,8 +2,8 @@
 # I need to learn `make` before doing more.
 
 PRG           = main
-FREQ 					= 1000000
-LFUSE_BYTE		= 01100010
+FREQ          = 1000000
+LFUSE_BYTE    = 01100010
 MCU_TARGET    = attiny84
 CC            = avr-gcc
 CFLAGS        = -g -Wall -O2 -mmcu=$(MCU_TARGET) -DF_CPU=$(FREQ)
