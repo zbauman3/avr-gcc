@@ -16,16 +16,16 @@ build-upload: build upload
 build: clean $(PRG).elf $(PRG).hex
 
 $(PRG).elf: $(PRG).o
-	$(CC) $(CFLAGS) -o $@ $^
-	
+  $(CC) $(CFLAGS) -o $@ $^
+  
 $(PRG).hex: $(PRG).elf
-	avr-objcopy -j .text -j .data -O ihex $< $@
+  avr-objcopy -j .text -j .data -O ihex $< $@
 
 upload:
-	avrdude -c usbtiny -b 19200 -p $(MCU_TARGET) -U flash:w:$(PRG).hex
+  avrdude -c usbtiny -b 19200 -p $(MCU_TARGET) -U flash:w:$(PRG).hex
 
 setLFuse:
-	avrdude -v -p $(MCU_TARGET) -c usbtiny -B8 -e -U lfuse:w:0b$(LFUSE_BYTE):m
+  avrdude -v -p $(MCU_TARGET) -c usbtiny -B8 -e -U lfuse:w:0b$(LFUSE_BYTE):m
 
 clean:
-	rm -rf *.o $(PRG).elf *.hex
+  rm -rf *.o $(PRG).elf *.hex
