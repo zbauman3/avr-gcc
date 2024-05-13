@@ -2,5 +2,8 @@
   "files.associations": {
     "*.ino": "cpp",
     "*.h": "c",
+  },
+  "terminal.integrated.env.osx": {
+    "PATH": "PATH=\"$PATH\":/Users/zanebauman/code/avr-gcc/toolchain/bin"
   }
 }

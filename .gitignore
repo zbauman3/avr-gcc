@@ -56,3 +56,4 @@ dkms.conf
 **/.DS_Store
 *.srec
 *.lst
+projects/**/*.bin
