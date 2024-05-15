@@ -2,9 +2,9 @@
 ; | ATTINY84 | SN74HC595N |
 ; | -------- | ---------- |
 ; | PINA0    | !SRCLR     |
-; | PINA1    | SER        |
+; | PINA5    | SER        |
 ; | PINA2    | RCLK       |
-; | PINA3    | SRCLK      |
+; | PINA4    | SRCLK      |
 
 #include <avr/io.h>
 

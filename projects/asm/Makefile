@@ -1,7 +1,7 @@
 # Super simple Makefile for getting a `.hex`.
 # I need to learn `make` before doing more.
 
-PRG           = millis
+PRG           = eeprom
 MCU_TARGET    = attiny84
 ASMFLAGS      = -mmcu=$(MCU_TARGET) -x assembler-with-cpp
 CFLAGS        = -g -Wall -O2 -mmcu=$(MCU_TARGET)
