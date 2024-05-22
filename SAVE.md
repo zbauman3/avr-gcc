@@ -2,3 +2,5 @@
   - `avr-gcc -v -x c -E /dev/null` or `avr-gcc -v -x c++ -E /dev/null`
 - avr-libc docs
   - https://www.nongnu.org/avr-libc/user-manual/modules.html
+- v-usb 
+  - `sed -i '' 's/^PROGMEM/const PROGMEM/g' usbdrv/*`

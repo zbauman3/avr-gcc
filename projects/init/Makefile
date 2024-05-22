@@ -1,7 +1,7 @@
 # Super simple Makefile for getting a `.hex`.
 # I need to learn `make` before doing more.
 
-PRG           = main
+PRG           = shift-register
 FREQ          = 1000000
 LFUSE_BYTE    = 01100010
 MCU_TARGET    = attiny84
@@ -21,7 +21,7 @@ clean:
 	rm -rf $(PRG).o $(PRG).hex $(PRG).elf
 
 $(PRG).o: $(PRG).c
-	avr-gcc $(CFLAGS) -c -o $@ $^
+	avr-gcc $(CFLAGS) -I ../include -c -o $@ $^
 
 $(PRG).elf: $(PRG).o
 	avr-gcc $(CFLAGS) -o $@ $^
