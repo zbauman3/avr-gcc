@@ -5,7 +5,18 @@
     "*.S": "avr",
     "*.s": "avr",
     "string": "c",
-    "iosfwd": "c"
+    "*.cpp": "cpp",
+    "__bit_reference": "cpp",
+    "bitset": "cpp",
+    "__memory": "cpp",
+    "limits": "cpp",
+    "locale": "cpp",
+    "ratio": "cpp",
+    "tuple": "cpp",
+    "helpers.c": "cpp",
+    "string_view": "cpp",
+    "snx4hc595.c": "cpp",
+    "__locale": "c"
   },
   "terminal.integrated.env.osx": {
     "PATH": "PATH=\"$PATH\":/Users/zanebauman/code/avr-gcc/toolchain/bin"
