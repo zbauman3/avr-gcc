@@ -19,6 +19,6 @@
     "__locale": "c"
   },
   "terminal.integrated.env.osx": {
-    "PATH": "PATH=\"$PATH\":/Users/zanebauman/code/avr-gcc/toolchain/bin"
+    "PATH": "PATH=\"$PATH\":/Users/zanebauman/code/bin/avr-toolchain-3.7.0/bin"
   }
 }

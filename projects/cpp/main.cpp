@@ -5,14 +5,19 @@
 
 SNX4HC595Config config = {.clrb = 13, .sclk = 9, .rclk = 11, .data = 8};
 
-void loop() {
-  static uint16_t last = 0b1111111100000000;
+uint16_t numbToBitMask(uint8_t num) { return (1 << num); };
 
-  last = ~last;
+void loop() {
+  static uint16_t last = 0b0000000000000001;
 
   SNX4HC595_sendWord(&config, last);
 
-  _delay_ms(1000);
+  last *= 2;
+  if (last == 0) {
+    last = 1;
+  }
+
+  _delay_ms(500);
 }
 
 int main(void) {

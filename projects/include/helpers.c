@@ -8,7 +8,8 @@
 #define OUTPUT 1
 #define INPUT_PULLUP 2
 
-#define INV_REG 0
+#define INV_PORT 0
+#define INV_PIN 0
 
 #define sbi(var, mask) ((var) |= (uint8_t)(1 << mask))
 #define cbi(var, mask) ((var) &= (uint8_t) ~(1 << mask))
