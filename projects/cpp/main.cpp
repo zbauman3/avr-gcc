@@ -8,49 +8,44 @@
 
 SNX4HC595Config config = {.clrb = 13, .sclk = 9, .rclk = 11, .data = 8};
 
-volatile bool didInterrupt = false;
-static uint8_t save = 0b00000001;
-static uint8_t counter = 0b00000000;
+uint16_t readAdc() {
+  // start conversion
+  sbi(ADCSRA, ADSC);
 
-uint16_t leftRotate(uint16_t n, uint16_t d) {
-  return (n << d) | (n >> (16 - d));
+  while (bit_is_set(ADCSRA, ADSC)) {
+  };
+
+  return ADC;
 }
 
 void loop() {
-  if (didInterrupt == true) {
-    didInterrupt = false;
-    save = counter;
+  SNX4HC595_sendWord(&config, 0b1100000000000000);
+  _delay_ms(3000);
 
-    SNX4HC595_sendWord(&config, 0b1111111111111111);
-    _delay_ms(1000);
-  }
+  uint16_t adcVal = readAdc();
 
-  counter *= 2;
-  if (counter == 0) {
-    counter = 1;
-  }
-
-  uint16_t word = leftRotate((uint16_t)counter, 8) | save;
-
-  SNX4HC595_sendWord(&config, word);
-
-  _delay_ms(500);
+  SNX4HC595_sendWord(&config, adcVal);
+  _delay_ms(3000);
 }
 
 int main(void) {
   SNX4HC595_setup(&config);
   SNX4HC595_clear(&config);
-  pinMode(6, INPUT);
 
-  sbi(GIMSK, PCIE0);
-  sbi(PCMSK0, PCINT7);
+  // ADC1, PA1
+  pinMode(12, INPUT);
 
-  sei();
+  // disable digital input
+  DIDR0 = _BV(ADC1D);
+
+  ADMUX = 0b000001;
+  //        ^^^^^^ = MUX5..0 = ADC1
+
+  // enable ADC
+  ADCSRA = _BV(ADEN);
 
   for (;;)
     loop();
 
   return (0);
 }
-
-ISR(PCINT0_vect) { didInterrupt = true; }
