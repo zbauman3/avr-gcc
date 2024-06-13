@@ -16,7 +16,8 @@
     "helpers.c": "cpp",
     "string_view": "cpp",
     "snx4hc595.c": "cpp",
-    "__locale": "c"
+    "__locale": "c",
+    "pins.c": "cpp"
   },
   "terminal.integrated.env.osx": {
     "PATH": "PATH=\"$PATH\":/Users/zanebauman/code/bin/avr-toolchain-3.7.0/bin"
