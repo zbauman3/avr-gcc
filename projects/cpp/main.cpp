@@ -10,7 +10,7 @@ SNX4HC595Config config = {.clrb = 13, .sclk = 9, .rclk = 11, .data = 8};
 
 volatile bool didInterrupt = false;
 static uint8_t save = 0b00000001;
-static uint8_t counter = 0b00000001;
+static uint8_t counter = 0b00000000;
 
 uint16_t leftRotate(uint16_t n, uint16_t d) {
   return (n << d) | (n >> (16 - d));
@@ -25,14 +25,14 @@ void loop() {
     _delay_ms(1000);
   }
 
-  uint16_t word = leftRotate((uint16_t)counter, 8) | save;
-
-  SNX4HC595_sendWord(&config, word);
-
   counter *= 2;
   if (counter == 0) {
     counter = 1;
   }
+
+  uint16_t word = leftRotate((uint16_t)counter, 8) | save;
+
+  SNX4HC595_sendWord(&config, word);
 
   _delay_ms(500);
 }
