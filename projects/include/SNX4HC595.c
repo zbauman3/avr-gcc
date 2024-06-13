@@ -1,3 +1,6 @@
+#ifndef _ZANE_SNX4HC595_
+#define _ZANE_SNX4HC595_
+
 #include <avr/io.h>
 #include <helpers.c>
 #include <pins.c>
@@ -73,3 +76,5 @@ void SNX4HC595_sendWord(SNX4HC595Config *config, uint16_t value) {
 
   SNX4HC595_showData(config);
 }
+
+#endif
