@@ -13,7 +13,7 @@
         "/Users/zanebauman/code/bin/avr-toolchain-3.7.0/lib/gcc/avr/7.3.0",
         "/Users/zanebauman/code/bin/avr-toolchain-3.7.0/lib/gcc",
         "/Users/zanebauman/code/bin/avr-toolchain-3.7.0/avr/lib",
-        "/Users/zanebauman/code/avr-gcc/projects/include"
+        "/Users/zanebauman/code/avr-gcc/projects/cpp/include"
       ],
       "defines": [
         // For some reason, VS code can't determine that these are defined.

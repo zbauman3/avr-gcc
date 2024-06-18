@@ -21,7 +21,7 @@ clean:
 	rm -rf $(PRG).o $(PRG).hex $(PRG).elf
 
 $(PRG).o: $(PRG).cpp
-	avr-gcc $(CFLAGS) -I ../include -c -o $@ $^
+	avr-gcc $(CFLAGS) -I ./include -c -o $@ $^
 
 $(PRG).elf: $(PRG).o
 	avr-gcc $(CFLAGS) -o $@ $^
