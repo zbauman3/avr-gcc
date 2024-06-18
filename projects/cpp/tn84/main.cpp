@@ -1,9 +1,5 @@
 #include <SNX4HC595.c>
-#include <avr/interrupt.h>
 #include <avr/io.h>
-#include <avr/pgmspace.h>
-#include <helpers.c>
-#include <pins.c>
 #include <util/delay.h>
 
 SNX4HC595Config config = {.clrb = 13, .sclk = 9, .rclk = 11, .data = 8};

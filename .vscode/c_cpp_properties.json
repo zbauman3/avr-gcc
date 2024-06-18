@@ -16,12 +16,8 @@
         "/Users/zanebauman/code/avr-gcc/projects/cpp/include"
       ],
       "defines": [
-        // For some reason, VS code can't determine that these are defined.
-        // I'll just put them here and revisit later when I understand better.
         "__AVR_ATtiny84__",
-        // "__AVR_ATtiny84__",
-        // "__asm__ asm",
-        // "__volatile__ volatile",
+        "F_CPU",
       ],
       "compilerPath": "/Users/zanebauman/code/bin/avr-toolchain-3.7.0/bin/avr-gcc",
       // "compilerPath": "/usr/bin/clang",
