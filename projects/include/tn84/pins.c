@@ -59,4 +59,22 @@ const uint8_t pin_to_port_bitmask_TBL[15] PROGMEM = {
     INV_PIN, // 14 - GND
 };
 
+const uint8_t pin_to_adc_mux_bitmask_TBL[15] PROGMEM = {
+    INV_PIN, // 0 - INVALID
+    INV_PIN, // 1 - VCC
+    INV_PIN, // 2 - no ADC
+    INV_PIN, // 3 - no ADC
+    INV_PIN, // 4 - no ADC
+    INV_PIN, // 5 - no ADC
+    7,       // 6
+    6,       // 7
+    5,       // 8
+    4,       // 9
+    3,       // 10
+    2,       // 11
+    1,       // 12
+    0,       // 13
+    INV_PIN, // 14 - GND
+};
+
 #endif
