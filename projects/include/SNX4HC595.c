@@ -5,6 +5,9 @@
 #include <helpers.c>
 #include <pins.c>
 
+#define USI_TGL_CLK ((1 << USIWM0) | (1 << USITC))
+#define USI_TGL_CLK_SHIFT ((1 << USIWM0) | (1 << USITC) | (1 << USICLK))
+
 typedef struct {
   uint8_t clrb;
   uint8_t sclk;
@@ -44,35 +47,69 @@ void SNX4HC595_setup(SNX4HC595Config *config) {
 }
 
 void SNX4HC595_sendByte(SNX4HC595Config *config, uint8_t value) {
-  uint8_t mask;
-  int8_t i;
+  USIDR = value;
 
-  for (i = 7; i >= 0; i--) {
-    mask = value & (1 << i);
-    if (mask == 0) {
-      digitalWrite(config->data, LOW);
-    } else {
-      digitalWrite(config->data, HIGH);
-    }
-    SNX4HC595_sendData(config);
-  }
+  // not beautiful, but efficient.
+  USICR = USI_TGL_CLK;
+  USICR = USI_TGL_CLK_SHIFT;
+  USICR = USI_TGL_CLK;
+  USICR = USI_TGL_CLK_SHIFT;
+  USICR = USI_TGL_CLK;
+  USICR = USI_TGL_CLK_SHIFT;
+  USICR = USI_TGL_CLK;
+  USICR = USI_TGL_CLK_SHIFT;
+  USICR = USI_TGL_CLK;
+  USICR = USI_TGL_CLK_SHIFT;
+  USICR = USI_TGL_CLK;
+  USICR = USI_TGL_CLK_SHIFT;
+  USICR = USI_TGL_CLK;
+  USICR = USI_TGL_CLK_SHIFT;
+  USICR = USI_TGL_CLK;
+  USICR = USI_TGL_CLK_SHIFT;
 
   SNX4HC595_showData(config);
 }
 
 void SNX4HC595_sendWord(SNX4HC595Config *config, uint16_t value) {
-  uint16_t mask;
-  int8_t i;
+  USIDR = (value >> 8);
 
-  for (i = 15; i >= 0; i--) {
-    mask = value & (1 << i);
-    if (mask == 0) {
-      digitalWrite(config->data, LOW);
-    } else {
-      digitalWrite(config->data, HIGH);
-    }
-    SNX4HC595_sendData(config);
-  }
+  // not beautiful, but efficient.
+  USICR = USI_TGL_CLK;
+  USICR = USI_TGL_CLK_SHIFT;
+  USICR = USI_TGL_CLK;
+  USICR = USI_TGL_CLK_SHIFT;
+  USICR = USI_TGL_CLK;
+  USICR = USI_TGL_CLK_SHIFT;
+  USICR = USI_TGL_CLK;
+  USICR = USI_TGL_CLK_SHIFT;
+  USICR = USI_TGL_CLK;
+  USICR = USI_TGL_CLK_SHIFT;
+  USICR = USI_TGL_CLK;
+  USICR = USI_TGL_CLK_SHIFT;
+  USICR = USI_TGL_CLK;
+  USICR = USI_TGL_CLK_SHIFT;
+  USICR = USI_TGL_CLK;
+  USICR = USI_TGL_CLK_SHIFT;
+
+  USIDR = value;
+
+  // not beautiful, but efficient.
+  USICR = USI_TGL_CLK;
+  USICR = USI_TGL_CLK_SHIFT;
+  USICR = USI_TGL_CLK;
+  USICR = USI_TGL_CLK_SHIFT;
+  USICR = USI_TGL_CLK;
+  USICR = USI_TGL_CLK_SHIFT;
+  USICR = USI_TGL_CLK;
+  USICR = USI_TGL_CLK_SHIFT;
+  USICR = USI_TGL_CLK;
+  USICR = USI_TGL_CLK_SHIFT;
+  USICR = USI_TGL_CLK;
+  USICR = USI_TGL_CLK_SHIFT;
+  USICR = USI_TGL_CLK;
+  USICR = USI_TGL_CLK_SHIFT;
+  USICR = USI_TGL_CLK;
+  USICR = USI_TGL_CLK_SHIFT;
 
   SNX4HC595_showData(config);
 }
