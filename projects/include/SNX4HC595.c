@@ -5,9 +5,6 @@
 #include <helpers.c>
 #include <pins.c>
 
-#define USI_TGL_CLK ((1 << USIWM0) | (1 << USITC))
-#define USI_TGL_CLK_SHIFT ((1 << USIWM0) | (1 << USITC) | (1 << USICLK))
-
 typedef struct {
   uint8_t clrb;
   uint8_t sclk;
@@ -47,69 +44,75 @@ void SNX4HC595_setup(SNX4HC595Config *config) {
 }
 
 void SNX4HC595_sendByte(SNX4HC595Config *config, uint8_t value) {
+  uint8_t usiTglClk = (1 << USIWM0) | (1 << USITC);
+  uint8_t usiTglClkShift = (1 << USIWM0) | (1 << USITC) | (1 << USICLK);
+
   USIDR = value;
 
   // not beautiful, but efficient.
-  USICR = USI_TGL_CLK;
-  USICR = USI_TGL_CLK_SHIFT;
-  USICR = USI_TGL_CLK;
-  USICR = USI_TGL_CLK_SHIFT;
-  USICR = USI_TGL_CLK;
-  USICR = USI_TGL_CLK_SHIFT;
-  USICR = USI_TGL_CLK;
-  USICR = USI_TGL_CLK_SHIFT;
-  USICR = USI_TGL_CLK;
-  USICR = USI_TGL_CLK_SHIFT;
-  USICR = USI_TGL_CLK;
-  USICR = USI_TGL_CLK_SHIFT;
-  USICR = USI_TGL_CLK;
-  USICR = USI_TGL_CLK_SHIFT;
-  USICR = USI_TGL_CLK;
-  USICR = USI_TGL_CLK_SHIFT;
+  USICR = usiTglClk;
+  USICR = usiTglClkShift;
+  USICR = usiTglClk;
+  USICR = usiTglClkShift;
+  USICR = usiTglClk;
+  USICR = usiTglClkShift;
+  USICR = usiTglClk;
+  USICR = usiTglClkShift;
+  USICR = usiTglClk;
+  USICR = usiTglClkShift;
+  USICR = usiTglClk;
+  USICR = usiTglClkShift;
+  USICR = usiTglClk;
+  USICR = usiTglClkShift;
+  USICR = usiTglClk;
+  USICR = usiTglClkShift;
 
   SNX4HC595_showData(config);
 }
 
 void SNX4HC595_sendWord(SNX4HC595Config *config, uint16_t value) {
+  uint8_t usiTglClk = (1 << USIWM0) | (1 << USITC);
+  uint8_t usiTglClkShift = (1 << USIWM0) | (1 << USITC) | (1 << USICLK);
+
   USIDR = (value >> 8);
 
   // not beautiful, but efficient.
-  USICR = USI_TGL_CLK;
-  USICR = USI_TGL_CLK_SHIFT;
-  USICR = USI_TGL_CLK;
-  USICR = USI_TGL_CLK_SHIFT;
-  USICR = USI_TGL_CLK;
-  USICR = USI_TGL_CLK_SHIFT;
-  USICR = USI_TGL_CLK;
-  USICR = USI_TGL_CLK_SHIFT;
-  USICR = USI_TGL_CLK;
-  USICR = USI_TGL_CLK_SHIFT;
-  USICR = USI_TGL_CLK;
-  USICR = USI_TGL_CLK_SHIFT;
-  USICR = USI_TGL_CLK;
-  USICR = USI_TGL_CLK_SHIFT;
-  USICR = USI_TGL_CLK;
-  USICR = USI_TGL_CLK_SHIFT;
+  USICR = usiTglClk;
+  USICR = usiTglClkShift;
+  USICR = usiTglClk;
+  USICR = usiTglClkShift;
+  USICR = usiTglClk;
+  USICR = usiTglClkShift;
+  USICR = usiTglClk;
+  USICR = usiTglClkShift;
+  USICR = usiTglClk;
+  USICR = usiTglClkShift;
+  USICR = usiTglClk;
+  USICR = usiTglClkShift;
+  USICR = usiTglClk;
+  USICR = usiTglClkShift;
+  USICR = usiTglClk;
+  USICR = usiTglClkShift;
 
   USIDR = value;
 
   // not beautiful, but efficient.
-  USICR = USI_TGL_CLK;
-  USICR = USI_TGL_CLK_SHIFT;
-  USICR = USI_TGL_CLK;
-  USICR = USI_TGL_CLK_SHIFT;
-  USICR = USI_TGL_CLK;
-  USICR = USI_TGL_CLK_SHIFT;
-  USICR = USI_TGL_CLK;
-  USICR = USI_TGL_CLK_SHIFT;
-  USICR = USI_TGL_CLK;
-  USICR = USI_TGL_CLK_SHIFT;
-  USICR = USI_TGL_CLK;
-  USICR = USI_TGL_CLK_SHIFT;
-  USICR = USI_TGL_CLK;
-  USICR = USI_TGL_CLK_SHIFT;
-  USICR = USI_TGL_CLK;
-  USICR = USI_TGL_CLK_SHIFT;
+  USICR = usiTglClk;
+  USICR = usiTglClkShift;
+  USICR = usiTglClk;
+  USICR = usiTglClkShift;
+  USICR = usiTglClk;
+  USICR = usiTglClkShift;
+  USICR = usiTglClk;
+  USICR = usiTglClkShift;
+  USICR = usiTglClk;
+  USICR = usiTglClkShift;
+  USICR = usiTglClk;
+  USICR = usiTglClkShift;
+  USICR = usiTglClk;
+  USICR = usiTglClkShift;
+  USICR = usiTglClk;
+  USICR = usiTglClkShift;
 
   SNX4HC595_showData(config);
 }
